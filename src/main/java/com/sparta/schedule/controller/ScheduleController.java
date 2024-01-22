@@ -64,7 +64,7 @@ public class ScheduleController {
             scheduleList.remove(id);
             return id;
         } else {
-            throw new IllegalArgumentException("선택한 일정은 존재하지 않습니다.");//
+            throw new IllegalArgumentException("선택한 일정은 존재하지 않습니다.");
         }
     }
 }
