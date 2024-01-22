@@ -1,6 +1,5 @@
 package com.sparta.schedule.dto;
 
-import jakarta.persistence.Column;
 import lombok.Getter;
 
 @Getter

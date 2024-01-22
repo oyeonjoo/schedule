@@ -22,11 +22,4 @@ public class ScheduleResponseDto {
         this.createdAt = schedule.getCreatedAt();
         this.modifiedAt = schedule.getModifiedAt();
     }
-
-    public ScheduleResponseDto(Long id, String title, String contents, String username) {
-        this.id = id;
-        this.title = title;
-        this.contents = contents;
-        this.username = username;
-    }
 }
