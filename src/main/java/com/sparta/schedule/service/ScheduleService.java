@@ -39,11 +39,11 @@ public class ScheduleService {
     }
 
     @Transactional
-    public Long updateSchedule(Long id, String password, ScheduleRequestDto requestDto) {
+    public Long updateSchedule(Long id,ScheduleRequestDto requestDto) {
         // 해당 일정이 DB에 존재하는지 확인
         Schedule schedule = findSchedule(id);
         // 비빌번호 일치 -> schedule 수정
-        if(schedule.getPassword().equals(password)) {
+        if(schedule.getPassword().equals(requestDto.getPassword())) {
             schedule.update(requestDto);
         } else  {
             throw new PasswordMatchException();
