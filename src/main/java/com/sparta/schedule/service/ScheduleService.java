@@ -28,9 +28,13 @@ public class ScheduleService {
         return scheduleResponseDto;
     }
 
-    public List<ScheduleResponseDto> getSchedule() {
+    public Schedule getSchedule(Long id) {
+        return findSchedule(id);
+    }
+
+    public List<ScheduleResponseDto> getSchedules() {
         // DB 조회
-        return scheduleRepository.findAllByOrderByModifiedAtDesc().stream().map(ScheduleResponseDto::new).toList();
+        return scheduleRepository.findAllByOrderByDateDesc().stream().map(ScheduleResponseDto::new).toList();
     }
 
     @Transactional
@@ -46,6 +50,8 @@ public class ScheduleService {
     public Long deleteSchedule(Long id) {
         // 해당 일정이 DB에 존재하는지 확인
         Schedule schedule = findSchedule(id);
+        // 비빌번호 검증
+
         // 해당 일정 삭제하기
         scheduleRepository.delete(schedule);
 

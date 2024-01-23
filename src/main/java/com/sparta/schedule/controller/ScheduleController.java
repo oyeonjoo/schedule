@@ -2,6 +2,7 @@ package com.sparta.schedule.controller;
 
 import com.sparta.schedule.dto.ScheduleRequestDto;
 import com.sparta.schedule.dto.ScheduleResponseDto;
+import com.sparta.schedule.entity.Schedule;
 import com.sparta.schedule.service.ScheduleService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +16,20 @@ public class ScheduleController {
     public ScheduleController(ScheduleService scheduleService) {
         this.scheduleService = scheduleService;
     }
+
     @PostMapping("/schedules")
     public ScheduleResponseDto createSchedule(@RequestBody ScheduleRequestDto requestDto){
         return scheduleService.createSchedule(requestDto);
     }
 
     @GetMapping("/schedules")
+    public Schedule getSchedule(@RequestParam Long id){
+        return scheduleService.getSchedule(id);
+    }
+
+    @GetMapping("/schedules")
     public List<ScheduleResponseDto> getSchedules() {
-        return scheduleService.getSchedule();
+        return scheduleService.getSchedules();
     }
 
     @PutMapping("/schedules/{id}")
