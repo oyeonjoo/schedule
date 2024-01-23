@@ -4,16 +4,15 @@ import com.sparta.schedule.dto.ScheduleRequestDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
-@Setter
 @Table(name = "schedule")
 @NoArgsConstructor
-public class Schedule extends Timestamped {
+public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,11 +24,15 @@ public class Schedule extends Timestamped {
     private String username;
     @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "date", nullable = false)
+    private LocalDateTime date;
 
     public Schedule(ScheduleRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
         this.username = requestDto.getUsername();
+        this.password = requestDto.getPassword();
+        this.date = LocalDateTime.now();
     }
 
     public void update(ScheduleRequestDto requestDto) {
