@@ -38,7 +38,7 @@ public class ScheduleController {
     }
 
     @DeleteMapping("/schedules/{id}")
-    public Long deleteSchedule(@PathVariable Long id) {
-        return scheduleService.deleteSchedule(id);
+    public Long deleteSchedule(@PathVariable Long id, @PathVariable String password) {
+        return scheduleService.deleteSchedule(id, password);
     }
 }

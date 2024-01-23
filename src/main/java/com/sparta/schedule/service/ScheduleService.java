@@ -3,6 +3,7 @@ package com.sparta.schedule.service;
 import com.sparta.schedule.dto.ScheduleRequestDto;
 import com.sparta.schedule.dto.ScheduleResponseDto;
 import com.sparta.schedule.entity.Schedule;
+import com.sparta.schedule.exception.PasswordMatchException;
 import com.sparta.schedule.repository.ScheduleRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -38,23 +39,27 @@ public class ScheduleService {
     }
 
     @Transactional
-    public Long updateSchedule(Long id, ScheduleRequestDto requestDto) {
+    public Long updateSchedule(Long id, String password, ScheduleRequestDto requestDto) {
         // 해당 일정이 DB에 존재하는지 확인
         Schedule schedule = findSchedule(id);
-        // schedule 내용 수정
-        schedule.update(requestDto);
-
+        // 비빌번호 일치 -> schedule 수정
+        if(schedule.getPassword().equals(password)) {
+            schedule.update(requestDto);
+        } else  {
+            throw new PasswordMatchException();
+        }
         return id;
     }
 
-    public Long deleteSchedule(Long id) {
+    public Long deleteSchedule(Long id, String password) {
         // 해당 일정이 DB에 존재하는지 확인
         Schedule schedule = findSchedule(id);
-        // 비빌번호 검증
-
-        // 해당 일정 삭제하기
-        scheduleRepository.delete(schedule);
-
+        // 비빌번호 일치 -> schedule 삭제
+        if(schedule.getPassword().equals(password)) {
+            scheduleRepository.delete(schedule);
+        } else {
+            throw new PasswordMatchException();
+        }
         return id;
     }
 
