@@ -17,12 +17,12 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
 
-    @PostMapping("/schedules")
+    @PostMapping("/schedule")
     public ScheduleResponseDto createSchedule(@RequestBody ScheduleRequestDto requestDto){
         return scheduleService.createSchedule(requestDto);
     }
 
-    @GetMapping("/schedules")
+    @GetMapping("/schedule")
     public Schedule getSchedule(@RequestParam Long id){
         return scheduleService.getSchedule(id);
     }
@@ -32,7 +32,7 @@ public class ScheduleController {
         return scheduleService.getSchedules();
     }
 
-    @PutMapping("/schedules/{id}")
+    @PutMapping("/schedule/{id}")
     public Long updateSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto requestDto) {
         return scheduleService.updateSchedule(id, requestDto);
     }
