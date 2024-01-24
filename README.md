@@ -39,7 +39,8 @@
 
 <h3>📌  Use Case Diagram</h3>
 
-![schedule_UseCaseDiagram](https://github.com/oyeonjoo/schedule/assets/109337974/737e89b9-445f-473c-86e1-ea6ba5f557b1)
+
+<img width="643" alt="schedule_UseCaseDiagram" src="https://github.com/oyeonjoo/schedule/assets/109337974/3be94f56-002b-474d-8dcf-4e1c9a65d837">
 
 
 <h3>📌  API 명세서</h3>
