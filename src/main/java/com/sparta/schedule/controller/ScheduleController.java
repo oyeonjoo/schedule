@@ -22,8 +22,8 @@ public class ScheduleController {
         return scheduleService.createSchedule(requestDto);
     }
 
-    @GetMapping("/schedule")
-    public Schedule getSchedule(@RequestParam Long id){
+    @GetMapping("/schedule/{id}")
+    public Schedule getSchedule(@PathVariable Long id){
         return scheduleService.getSchedule(id);
     }
 
@@ -38,7 +38,7 @@ public class ScheduleController {
     }
 
     @DeleteMapping("/schedule/{id}")
-    public Long deleteSchedule(@PathVariable Long id, @RequestBody String password) {
-        return scheduleService.deleteSchedule(id, password);
+    public Long deleteSchedule(@PathVariable Long id, @RequestBody ScheduleRequestDto requestDto) {
+        return scheduleService.deleteSchedule(id, requestDto.getPassword());
     }
 }
