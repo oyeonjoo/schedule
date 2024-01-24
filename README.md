@@ -46,7 +46,8 @@
 <h3>📌  API 명세서</h3>
 
 
-<img width="828" alt="스크린샷 2024-01-24 오전 6 07 42" src="https://github.com/oyeonjoo/schedule/assets/109337974/014e1a49-41d5-4ab9-978d-03ff1d15b5ee">
+<img width="830" alt="schedule_API 명세서" src="https://github.com/oyeonjoo/schedule/assets/109337974/87f741c7-34cc-41d0-bddd-6f017b1c9e09">
+
 
 
 <h3>📌  ERD</h3>
