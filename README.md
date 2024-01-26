@@ -46,7 +46,8 @@
 <h3>📌  API 명세서</h3>
 
 
-<img width="830" alt="schedule_API 명세서" src="https://github.com/oyeonjoo/schedule/assets/109337974/87f741c7-34cc-41d0-bddd-6f017b1c9e09">
+![schedule_API 명세서](https://github.com/oyeonjoo/schedule/assets/109337974/51ca58fe-f319-4102-a6e7-89f9720cc858)
+
 
 
 
